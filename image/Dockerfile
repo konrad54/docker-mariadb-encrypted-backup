@@ -16,30 +16,3 @@ RUN        apt-get update && apt-get install -y cron && \
 		   
 CMD        ["/entry.sh"]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#mkdir cron-mysqldump
-#cd cron-mysqldump
-#vi Dockerfile
-#
-#docker build -t transfer/cron-mysqldump .
