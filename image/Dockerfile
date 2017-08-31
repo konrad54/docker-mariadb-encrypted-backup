@@ -15,4 +15,3 @@ RUN        apt-get update && apt-get install -y cron && \
 		   chmod +x /scripts/db-restore.sh 
 		   
 CMD        ["/entry.sh"]
-

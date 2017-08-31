@@ -29,4 +29,3 @@ rm ${BACKUP_PATH}/${BACKUP_FILE}
 rm ${BACKUP_PATH}/${BACKUP_FILE_GZ}
 
 exit 0
-
