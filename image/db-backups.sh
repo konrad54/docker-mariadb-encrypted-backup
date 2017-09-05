@@ -9,6 +9,9 @@
 echo $(date) "Starting periodic backups ..."
 BACKUP_DIR=/backup
 
+# delete backups that are over $MARIADB_BACKUP_TTL days
+find $BACKUP_DIR -type f -mtime +${MARIADB_BACKUP_TTL} -exec rm {} \;
+
 # Select databases
 databases=`mysql --defaults-file=${CONFIG_PATH} --ssl -e "SHOW DATABASES;" | tr -d "| " | grep -v Database`
 
