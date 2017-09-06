@@ -7,6 +7,7 @@ echo "$CRON_TIME" " root /scripts/db-backups.sh"
 # set variables in crontab
 echo "DB_CRYPT_PUBLIC_KEY_FILENAME=${DB_CRYPT_PUBLIC_KEY_FILENAME}" > /etc/crontab
 echo "MARIADB_BACKUP_TTL=${MARIADB_BACKUP_TTL}" >> /etc/crontab
+echo "BACKUP_FILESYSTEM_GROUPID=${BACKUP_FILESYSTEM_GROUPID}" >> /etc/crontab
 echo "CONFIG_PATH=/backup-mysql.cnf" >> /etc/crontab
 
 # Variable CONFIG_PATH for connect to mariadb

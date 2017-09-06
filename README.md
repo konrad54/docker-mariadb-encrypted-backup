@@ -19,9 +19,10 @@ docker container run --name=db-backup -d \
  -e MYSQL_PASSWORD="password" \
  -e DB_CRYPT_PUBLIC_KEY_FILENAME="mysqldump-secure.pub.pem" \
  -e MARIADB_BACKUP_TTL=15 \
+ -e BACKUP_FILESYSTEM_GROUPID=4000 \ 
  -v /YOUR_BACKUP_DIRECTORY:/backup:rw \
  -v db_conf:/conf:ro \
- konrad54/mariadb-encrypted-backup:1.0.4
+ konrad54/mariadb-encrypted-backup:1.0.5
 
 
 ## Restore mysqldump
@@ -40,7 +41,7 @@ docker container run --entrypoint /scripts/db-restore.sh --rm --add-host example
  -e BACKUP_FILENAME="201708310912-mysql.sql.gz.enc" \
  -v /YOUR_BACKUP_DIRECTORY:/backup \
  -v /PATH_TO/mysqldump-secure.priv.pem:/mysqldump-secure.priv.pem \
- konrad54/mariadb-encrypted-backup:1.0.4
+ konrad54/mariadb-encrypted-backup:1.0.5
 ```
 
 
@@ -54,4 +55,4 @@ vi entry.sh
 vi db-backups.sh
 vi db-restore.sh
 
-docker build -t konrad54/mariadb-encrypted-backup:1.0.4 . 
+docker build -t konrad54/mariadb-encrypted-backup:1.0.5 . 

@@ -1,4 +1,4 @@
-# Dockerfile for transfer/cron-mysqldump
+# Dockerfile for konrad54/mariadb-encrypted-backup
 FROM       mariadb:10.1.14
 
 MAINTAINER Konrad Biedowicz <konrad.biedowicz@uni-greifswald.de>

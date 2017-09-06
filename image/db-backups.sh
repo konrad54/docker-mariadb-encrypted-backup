@@ -30,7 +30,8 @@ for db in ${databases}; do
         openssl smime -encrypt -binary -text -aes256 -in ${BACKUP_DIR}/${timestamp}-${db}.sql.gz -out ${BACKUP_DIR}/${timestamp}-${db}.sql.gz.enc -outform DER /conf/${DB_CRYPT_PUBLIC_KEY_FILENAME} 
 		  
         rm -f ${BACKUP_DIR}/${timestamp}-${db}.sql.gz
-        chmod 600 ${BACKUP_DIR}/${timestamp}-${db}.sql.gz.enc
+        chown root:${BACKUP_FILESYSTEM_GROUPID} ${BACKUP_DIR}/${timestamp}-${db}.sql.gz.enc
+        chmod 640 ${BACKUP_DIR}/${timestamp}-${db}.sql.gz.enc
     fi
 done
 
